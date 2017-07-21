@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = 236
+  Height = 203
+  Top = 155
+  Width = 289
+  Caption = 'Form1'
+  ClientHeight = 203
+  ClientWidth = 289
+  OnCreate = FormCreate
+  LCLVersion = '1.0.6.0'
+  object LabeledEdit1: TLabeledEdit
+    Left = 40
+    Height = 21
+    Top = 24
+    Width = 144
+    EditLabel.AnchorSideLeft.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.Left = 40
+    EditLabel.Height = 14
+    EditLabel.Top = 7
+    EditLabel.Width = 144
+    EditLabel.Caption = 'File'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+    Text = 'LabeledEdit1'
+    OnChange = LabeledEdit1Change
+  end
+  object Button1: TButton
+    Left = 192
+    Height = 25
+    Top = 24
+    Width = 88
+    Caption = 'Open'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object CheckBox1: TCheckBox
+    Left = 8
+    Height = 17
+    Top = 104
+    Width = 113
+    Caption = 'Calculate checksum'
+    TabOrder = 2
+  end
+  object CheckBox2: TCheckBox
+    Left = 8
+    Height = 17
+    Top = 138
+    Width = 116
+    Caption = 'Don''t create backup'
+    TabOrder = 3
+  end
+  object CheckBox3: TCheckBox
+    Left = 8
+    Height = 17
+    Top = 174
+    Width = 101
+    Caption = 'Force processing'
+    OnClick = CheckBox3Click
+    TabOrder = 4
+  end
+  object Button2: TButton
+    Left = 40
+    Height = 25
+    Top = 64
+    Width = 128
+    Caption = 'Start'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object OpenDialog1: TOpenDialog
+    OnCanClose = OpenDialog1CanClose
+    left = 192
+    top = 56
+  end
+end
