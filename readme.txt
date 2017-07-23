@@ -1,12 +1,12 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 0.9
+                                  Version 1.0.1
 
                          Created by Popov Evgeniy Alekseyevich
 
 System requirement
 
-Windows 98 or higher
+Windows 2000 or higher
 
 Program description
 
@@ -28,7 +28,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code is included in source.zip archive.
-It can be compiled under Lazarus 1.0 or higher.
+It can be compiled under Lazarus 1.6.4 or higher.
 
 Change log
 
@@ -39,3 +39,5 @@ Change log
 0.7 - Few bugs fixed
 0.8 - Totally program rewrote
 0.9 - Russian localization removed
+1.0 - Small changes. Windows 9x support was droped.
+1.0.1 - Small changes.
