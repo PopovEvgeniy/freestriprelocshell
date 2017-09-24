@@ -1,6 +1,6 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.0.1
+                                  Version 1.0.1.0.1
 
                          Created by Popov Evgeniy Alekseyevich
 
@@ -32,12 +32,13 @@ It can be compiled under Lazarus 1.6.4 or higher.
 
 Change log
 
-0.1 â€” Initial version
+0.1 — Initial version
 0.2 - Small changes in source code and interface
 0.3 - StripReloc check added
 0.4 - 0.6 - Small changes in source code
 0.7 - Few bugs fixed
 0.8 - Totally program rewrote
 0.9 - Russian localization removed
-1.0 - Small changes. Windows 9x support was dropped.
-1.0.1 - Small changes.
+1.0 - Small changes. Windows 9x support was dropped
+1.0.1 - Small changes
+1.0.1.0.1 – Documentation was updated
