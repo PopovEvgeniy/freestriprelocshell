@@ -21,9 +21,7 @@ type
     OpenDialog1: TOpenDialog;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
-    procedure CheckBox3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
   private
     { private declarations }
   public
@@ -31,8 +29,7 @@ type
   end; 
 
    var Form1: TForm1;
-   function get_path(): string;
-   function check_input(input:string):Boolean;
+   function get_backend(): string;
    function convert_file_name(source:string): string;
    function execute_program(executable:string;argument:string):Integer;
    procedure window_setup();
@@ -46,20 +43,9 @@ type
 
 implementation
 
- function get_path(): string;
+function get_backend(): string;
 begin
-get_path:=ExtractFilePath(Application.ExeName);
-end;
-
-function check_input(input:string):Boolean;
-var target:Boolean;
-begin
-target:=True;
-if input='' then
-begin
-target:=False;
-end;
-check_input:=target;
+get_backend:=ExtractFilePath(Application.ExeName)+'StripReloc.exe';
 end;
 
 function convert_file_name(source:string): string;
@@ -87,7 +73,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.0.1';
+ Form1.Caption:='Free Strip Reloc Shell 1.0.6';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -102,10 +88,13 @@ Form1.Button1.ShowHint:=False;
 Form1.Button2.ShowHint:=Form1.Button1.ShowHint;
 Form1.Button2.Enabled:=False;
 Form1.CheckBox1.Checked:=True;
+Form1.CheckBox2.Checked:=False;
+Form1.CheckBox3.Checked:=False;
 end;
 
 procedure dialog_setup();
 begin
+Form1.OpenDialog1.InitialDir:='';
 Form1.OpenDialog1.FileName:='*.exe';
 Form1.OpenDialog1.DefaultExt:='*.exe';
 Form1.OpenDialog1.Filter:='Executable files|*.exe';
@@ -114,7 +103,7 @@ end;
 procedure find_stripreloc();
 var check:string;
 begin
-check:=get_path()+'StripReloc.exe';
+check:=get_backend();
 if FileExists(check)=False then
 begin
 ShowMessage('Put StripReloc.exe to program directory');
@@ -127,18 +116,9 @@ function parse_arguments(): string;
 var target:string;
 begin
 target:='';
-if Form1.CheckBox1.Checked=True then
-begin
-target:=target+'/B ';
-end;
-if Form1.CheckBox2.Checked=True then
-begin
-target:=target+'/C ';
-end;
-if Form1.CheckBox3.Checked=True then
-begin
-target:=target+'/F ';
-end;
+if Form1.CheckBox1.Checked=True then target:=target+'/B ';
+if Form1.CheckBox2.Checked=True then target:=target+'/C ';
+if Form1.CheckBox3.Checked=True then target:=target+'/F ';
 parse_arguments:=target;
 end;
 
@@ -154,10 +134,10 @@ begin
 Form1.LabeledEdit1.EditLabel.Caption:='File';
 Form1.Button1.Caption:='Open';
 Form1.Button2.Caption:='Start';
-Form1.CheckBox1.Caption:='Calculate checksum';
+Form1.CheckBox1.Caption:='Fix checksum';
 Form1.CheckBox2.Caption:='Dont create backup';
 Form1.CheckBox3.Caption:='Force processing';
-Form1.OpenDialog1.Title:='Open existing file';
+Form1.OpenDialog1.Title:='Open an executable file';
 end;
 
 procedure setup();
@@ -167,6 +147,22 @@ find_stripreloc();
 language_setup();
 end;
 
+procedure do_job(target:string);
+var backend,job:string;
+begin
+backend:=get_backend();
+job:=parse_arguments()+convert_file_name(target);
+if execute_program(backend,job)<>0 then
+begin
+ShowMessage('Operation was failed');
+end
+else
+begin
+ShowMessage('Operation was successfully complete');
+end;
+
+end;
+
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -174,36 +170,19 @@ begin
 setup();
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
-begin
-Form1.Button2.Enabled:=check_input(Form1.LabeledEdit1.Text);
-end;
-
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-if Form1.OpenDialog1.Execute()=True then Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
+if Form1.OpenDialog1.Execute()=True then
+begin
+Form1.Button2.Enabled:=True;
+Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
+end;
+
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-var host,job:string;
 begin
-host:=get_path()+'StripReloc.exe';
-job:=parse_arguments()+convert_file_name(Form1.LabeledEdit1.Text);
-execute_program(host,job);
-end;
-
-procedure TForm1.CheckBox3Click(Sender: TObject);
-begin
-if Form1.CheckBox3.Checked=True then
-begin
-Form1.CheckBox2.Checked:=False;
-Form1.CheckBox2.Enabled:=False;
-end
-else
-begin
-Form1.CheckBox2.Enabled:=True;
-end;
-
+do_job(Form1.LabeledEdit1.Text);
 end;
 
 {$R *.lfm}

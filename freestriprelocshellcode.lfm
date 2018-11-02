@@ -7,7 +7,7 @@ object Form1: TForm1
   ClientHeight = 203
   ClientWidth = 289
   OnCreate = FormCreate
-  LCLVersion = '1.6.4.0'
+  LCLVersion = '1.8.4.0'
   object LabeledEdit1: TLabeledEdit
     Left = 40
     Height = 21
@@ -25,7 +25,6 @@ object Form1: TForm1
     EditLabel.ParentColor = False
     TabOrder = 0
     Text = 'LabeledEdit1'
-    OnChange = LabeledEdit1Change
   end
   object Button1: TButton
     Left = 192
@@ -40,8 +39,8 @@ object Form1: TForm1
     Left = 8
     Height = 17
     Top = 104
-    Width = 113
-    Caption = 'Calculate checksum'
+    Width = 83
+    Caption = 'Fix checksum'
     TabOrder = 2
   end
   object CheckBox2: TCheckBox
@@ -58,7 +57,6 @@ object Form1: TForm1
     Top = 174
     Width = 101
     Caption = 'Force processing'
-    OnClick = CheckBox3Click
     TabOrder = 4
   end
   object Button2: TButton
