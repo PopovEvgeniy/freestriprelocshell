@@ -1,6 +1,6 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.0.7
+                                  Version 1.0.8
 
                          This software made by Popov Evgeniy Alekseyevich
 
@@ -44,3 +44,4 @@ Change log
 1.0.1 - Small changes
 1.0.1.0.1 – Documentation was updated
 1.0.2 - 1.0.7 - Small changes
+1.0.8 - Small bug was fixed

@@ -5,7 +5,7 @@ unit freestriprelocshellcode;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Dialogs, ExtCtrls, StdCtrls, LazUTF8;
+  Classes, SysUtils, FileUtil, Forms, Controls, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -65,7 +65,7 @@ function execute_program(executable:string;argument:string):Integer;
 var code:Integer;
 begin
  try
-  code:=ExecuteProcess(UTF8ToWinCP(executable),UTF8ToWinCP(argument),[]);
+  code:=ExecuteProcess(executable,argument,[]);
  except
   On EOSError do code:=-1;
  end;
@@ -75,7 +75,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.0.7';
+ Form1.Caption:='Free Strip Reloc Shell 1.0.8';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
