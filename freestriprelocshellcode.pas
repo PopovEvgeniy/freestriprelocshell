@@ -30,18 +30,7 @@ type
     { public declarations }
   end; 
 
-   var Form1: TForm1;
-   function get_backend(): string;
-   function convert_file_name(source:string): string;
-   function execute_program(executable:string;argument:string):Integer;
-   procedure window_setup();
-   procedure interface_setup();
-   procedure dialog_setup();
-   procedure find_stripreloc();
-   function parse_arguments(): string;
-   procedure common_setup();
-   procedure language_setup();
-   procedure setup();
+  var Form1: TForm1;
 
 implementation
 
@@ -67,7 +56,7 @@ begin
  try
   code:=ExecuteProcess(executable,argument,[]);
  except
-  On EOSError do code:=-1;
+  code:=-1;
  end;
  execute_program:=code;
 end;
@@ -75,7 +64,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.0.8';
+ Form1.Caption:='Free Strip Reloc Shell 1.0.9';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
