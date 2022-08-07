@@ -1,13 +1,13 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.0.9
+                                  Version 1.0.9.1
 
                          This software made by Popov Evgeniy Alekseyevich
 
 System requirement
 
-Windows 2000 or higher for 32 bit system
-Windows Vista or higher for 64 bit system
+Windows 2000 or higher for 32-bit system
+Windows Vista or higher for 64-bit system
 
 Program description
 
@@ -46,3 +46,4 @@ Change log
 1.0.2 - 1.0.7 - Small changes
 1.0.8 - Small bug fixed
 1.0.9 - Small changes
+1.0.9.1 – Documentation updated
