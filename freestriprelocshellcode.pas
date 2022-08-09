@@ -64,7 +64,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.0.9';
+ Form1.Caption:='Free Strip Reloc Shell 1.2';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -91,18 +91,6 @@ begin
  Form1.OpenDialog1.Filter:='Executable files|*.exe';
 end;
 
-procedure find_stripreloc();
-var check:string;
-begin
- check:=get_backend();
- if FileExists(check)=False then
- begin
-  ShowMessage('Put StripReloc.exe to program directory');
-  Halt(0);
- end;
-
-end;
-
 function parse_arguments(): string;
 var target:string;
 begin
@@ -111,13 +99,6 @@ begin
  if Form1.CheckBox2.Checked=True then target:=target+'/C ';
  if Form1.CheckBox3.Checked=True then target:=target+'/F ';
  parse_arguments:=target;
-end;
-
-procedure common_setup();
-begin
-window_setup();
-dialog_setup();
-interface_setup();
 end;
 
 procedure language_setup();
@@ -133,8 +114,9 @@ end;
 
 procedure setup();
 begin
- common_setup();
- find_stripreloc();
+ window_setup();
+ dialog_setup();
+ interface_setup();
  language_setup();
 end;
 
@@ -145,7 +127,7 @@ begin
  job:=parse_arguments()+convert_file_name(target);
  if execute_program(backend,job)<>0 then
  begin
-  ShowMessage('Operation was failed');
+  ShowMessage('Operation failed');
  end
  else
  begin

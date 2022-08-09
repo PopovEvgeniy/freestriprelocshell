@@ -1,6 +1,6 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.0.9.1
+                                  Version 1.2
 
                          This software made by Popov Evgeniy Alekseyevich
 
@@ -35,7 +35,7 @@ Change log
 
 0.1 — Initial version
 0.2 - Small changes in source code and interface
-0.3 - StripReloc check added
+0.3 - StripReloc checking added
 0.4 - 0.6 - Small changes in source code
 0.7 - Few bugs fixed
 0.8 - Totally program rewrote
@@ -47,3 +47,5 @@ Change log
 1.0.8 - Small bug fixed
 1.0.9 - Small changes
 1.0.9.1 – Documentation updated
+1.1 - StripReloc checking removed
+1.2 - Small changes
