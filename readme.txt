@@ -1,6 +1,6 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.2
+                                  Version 1.2.1
 
                          This software made by Popov Evgeniy Alekseyevich
 
@@ -20,7 +20,7 @@ This program distributed under GNU GENERAL PUBLIC LICENSE.
 Prepare for work
 
 You can download STRIP RELOC here: http://www.jrsoftware.org/striprlc.php
-Put executable file of STRIP RELOC to FREE STRIP RELOC SHELL directory before first start.
+Put the executable file of STRIP RELOC to FREE STRIP RELOC SHELL directory before first start.
 
 Contact
 
@@ -48,4 +48,4 @@ Change log
 1.0.9 - Small changes
 1.0.9.1 – Documentation updated
 1.1 - StripReloc checking removed
-1.2 - Small changes
+1.2 - 1.2.1 - Small changes

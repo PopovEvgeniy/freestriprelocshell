@@ -64,7 +64,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.2';
+ Form1.Caption:='Free Strip Reloc Shell 1.2.1';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -121,11 +121,10 @@ begin
 end;
 
 procedure do_job(target:string);
-var backend,job:string;
+var job:string;
 begin
- backend:=get_backend();
  job:=parse_arguments()+convert_file_name(target);
- if execute_program(backend,job)<>0 then
+ if execute_program(get_backend(),job)<>0 then
  begin
   ShowMessage('Operation failed');
  end
