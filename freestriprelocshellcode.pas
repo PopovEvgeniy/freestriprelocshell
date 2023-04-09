@@ -5,7 +5,7 @@ unit freestriprelocshellcode;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Dialogs, ExtCtrls, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, StdCtrls, LazFileUtils;
 
 type
 
@@ -39,7 +39,7 @@ begin
  get_backend:=ExtractFilePath(Application.ExeName)+'StripReloc.exe';
 end;
 
-function convert_file_name(source:string): string;
+function convert_file_name(const source:string): string;
 var target:string;
 begin
  target:=source;
@@ -50,7 +50,7 @@ begin
  convert_file_name:=target;
 end;
 
-function execute_program(executable:string;argument:string):Integer;
+function execute_program(const executable:string;const argument:string):Integer;
 var code:Integer;
 begin
  try
@@ -61,10 +61,35 @@ begin
  execute_program:=code;
 end;
 
+function parse_arguments(): string;
+var target:string;
+begin
+ target:='';
+ if Form1.CheckBox1.Checked=True then target:=target+'/B ';
+ if Form1.CheckBox2.Checked=True then target:=target+'/C ';
+ if Form1.CheckBox3.Checked=True then target:=target+'/F ';
+ parse_arguments:=target;
+end;
+
+procedure do_job(const target:string);
+var job:string;
+begin
+ job:=parse_arguments()+convert_file_name(target);
+ if execute_program(get_backend(),job)<>0 then
+ begin
+  ShowMessage('Operation failed');
+ end
+ else
+ begin
+  ShowMessage('Operation was successfully complete');
+ end;
+
+end;
+
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.2.1';
+ Form1.Caption:='Free Strip Reloc Shell 1.2.2';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -91,16 +116,6 @@ begin
  Form1.OpenDialog1.Filter:='Executable files|*.exe';
 end;
 
-function parse_arguments(): string;
-var target:string;
-begin
- target:='';
- if Form1.CheckBox1.Checked=True then target:=target+'/B ';
- if Form1.CheckBox2.Checked=True then target:=target+'/C ';
- if Form1.CheckBox3.Checked=True then target:=target+'/F ';
- parse_arguments:=target;
-end;
-
 procedure language_setup();
 begin
  Form1.LabeledEdit1.EditLabel.Caption:='File';
@@ -118,21 +133,6 @@ begin
  dialog_setup();
  interface_setup();
  language_setup();
-end;
-
-procedure do_job(target:string);
-var job:string;
-begin
- job:=parse_arguments()+convert_file_name(target);
- if execute_program(get_backend(),job)<>0 then
- begin
-  ShowMessage('Operation failed');
- end
- else
- begin
-  ShowMessage('Operation was successfully complete');
- end;
-
 end;
 
 { TForm1 }

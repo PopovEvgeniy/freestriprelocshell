@@ -1,6 +1,6 @@
                                 FREE STRIP RELOC SHELL
 
-                                  Version 1.2.1
+                                  Version 1.2.2
 
                          This software made by Popov Evgeniy Alekseyevich
 
@@ -29,7 +29,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code included in source.zip archive.
-It can be compiled under Lazarus 2.2.2 or higher.
+It can be compiled under Lazarus 2.2.6 or higher.
 
 Change log
 
@@ -48,4 +48,4 @@ Change log
 1.0.9 - Small changes
 1.0.9.1 – Documentation updated
 1.1 - StripReloc checking removed
-1.2 - 1.2.1 - Small changes
+1.2 - 1.2.2 - Small changes
