@@ -23,7 +23,6 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LabeledEdit1Change(Sender: TObject);
-    procedure OpenDialog1CanClose(Sender: TObject; var CanClose: boolean);
   private
     { private declarations }
   public
@@ -89,7 +88,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.2.2';
+ Form1.Caption:='Free Strip Reloc Shell 1.2.3';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -147,14 +146,9 @@ begin
  Form1.Button2.Enabled:=Form1.LabeledEdit1.Text<>'';
 end;
 
-procedure TForm1.OpenDialog1CanClose(Sender: TObject; var CanClose: boolean);
-begin
- Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
-end;
-
 procedure TForm1.Button1Click(Sender: TObject);
 begin
- Form1.OpenDialog1.Execute();
+ if Form1.OpenDialog1.Execute()=True then Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
