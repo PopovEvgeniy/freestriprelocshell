@@ -7,7 +7,7 @@ object Form1: TForm1
   ClientHeight = 203
   ClientWidth = 289
   OnCreate = FormCreate
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.6.0.0'
   object LabeledEdit1: TLabeledEdit
     Left = 40
     Height = 23
@@ -27,30 +27,30 @@ object Form1: TForm1
     Top = 24
     Width = 88
     Caption = 'Open'
-    OnClick = Button1Click
     TabOrder = 1
+    OnClick = Button1Click
   end
   object CheckBox1: TCheckBox
     Left = 8
     Height = 19
     Top = 104
-    Width = 92
-    Caption = 'Fix checksum'
+    Width = 110
+    Caption = 'Fix the checksum'
     TabOrder = 2
   end
   object CheckBox2: TCheckBox
     Left = 8
     Height = 19
     Top = 138
-    Width = 126
-    Caption = 'Don''t create backup'
+    Width = 133
+    Caption = 'Don''t create a backup'
     TabOrder = 3
   end
   object CheckBox3: TCheckBox
     Left = 8
     Height = 19
     Top = 174
-    Width = 109
+    Width = 107
     Caption = 'Force processing'
     TabOrder = 4
   end
@@ -60,8 +60,8 @@ object Form1: TForm1
     Top = 64
     Width = 128
     Caption = 'Start'
-    OnClick = Button2Click
     TabOrder = 5
+    OnClick = Button2Click
   end
   object OpenDialog1: TOpenDialog
     Left = 192

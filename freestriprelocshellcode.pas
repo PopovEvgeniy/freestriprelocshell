@@ -76,11 +76,11 @@ begin
  job:=parse_arguments()+convert_file_name(target);
  if execute_program(get_backend(),job)<>0 then
  begin
-  ShowMessage('Operation failed');
+  ShowMessage('Operation was failed');
  end
  else
  begin
-  ShowMessage('Operation was successfully complete');
+  ShowMessage('Operation was successfully completed');
  end;
 
 end;
@@ -88,7 +88,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.2.3';
+ Form1.Caption:='Free Strip Reloc Shell 1.2.4';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -112,7 +112,7 @@ begin
  Form1.OpenDialog1.InitialDir:='';
  Form1.OpenDialog1.FileName:='*.exe';
  Form1.OpenDialog1.DefaultExt:='*.exe';
- Form1.OpenDialog1.Filter:='Executable files|*.exe';
+ Form1.OpenDialog1.Filter:='An executable files|*.exe';
 end;
 
 procedure language_setup();
@@ -120,8 +120,8 @@ begin
  Form1.LabeledEdit1.EditLabel.Caption:='File';
  Form1.Button1.Caption:='Open';
  Form1.Button2.Caption:='Start';
- Form1.CheckBox1.Caption:='Fix checksum';
- Form1.CheckBox2.Caption:='Dont create backup';
+ Form1.CheckBox1.Caption:='Fix the checksum';
+ Form1.CheckBox2.Caption:='Dont create a backup';
  Form1.CheckBox3.Caption:='Force processing';
  Form1.OpenDialog1.Title:='Open an executable file';
 end;
