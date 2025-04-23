@@ -74,18 +74,18 @@
       <Unit1>
         <Filename Value="freestriprelocshellcode.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="MainWindow"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="80"/>
-        <CursorPos X="40" Y="86"/>
+        <TopLine Value="4"/>
+        <CursorPos X="66" Y="8"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="6" HistoryIndex="5">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="freestriprelocshellcode.pas"/>
         <Caret Line="114" Column="44" TopLine="101"/>
@@ -110,6 +110,62 @@
         <Filename Value="freestriprelocshellcode.pas"/>
         <Caret Line="189" Column="29" TopLine="173"/>
       </Position6>
+      <Position7>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="91" Column="51" TopLine="80"/>
+      </Position7>
+      <Position8>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="99" Column="13" TopLine="92"/>
+      </Position8>
+      <Position9>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="156" Column="20" TopLine="144"/>
+      </Position9>
+      <Position10>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="102" Column="13" TopLine="95"/>
+      </Position10>
+      <Position11>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="121" Column="13" TopLine="109"/>
+      </Position11>
+      <Position12>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="103" Column="13" TopLine="96"/>
+      </Position12>
+      <Position13>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="146" Column="13" TopLine="134"/>
+      </Position13>
+      <Position14>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="112" Column="13" TopLine="105"/>
+      </Position14>
+      <Position15>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="151" Column="85" TopLine="139"/>
+      </Position15>
+      <Position16>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="67" Column="16" TopLine="60"/>
+      </Position16>
+      <Position17>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="123" Column="13" TopLine="111"/>
+      </Position17>
+      <Position18>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="68" Column="16" TopLine="61"/>
+      </Position18>
+      <Position19>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="124" Column="13" TopLine="112"/>
+      </Position19>
+      <Position20>
+        <Filename Value="freestriprelocshellcode.pas"/>
+        <Caret Line="69" Column="16" TopLine="62"/>
+      </Position20>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

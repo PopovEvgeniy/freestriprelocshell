@@ -5,31 +5,31 @@ unit freestriprelocshellcode;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, StdCtrls, LazFileUtils;
+  Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
-  { TForm1 }
+  { TMainWindow }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    CheckBox3: TCheckBox;
-    LabeledEdit1: TLabeledEdit;
-    OpenDialog1: TOpenDialog;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+  TMainWindow = class(TForm)
+    OpenButton: TButton;
+    StartButton: TButton;
+    FixCheckBox: TCheckBox;
+    DontBackupCheckBox: TCheckBox;
+    ForceCheckBox: TCheckBox;
+    FileField: TLabeledEdit;
+    OpenDialog: TOpenDialog;
+    procedure OpenButtonClick(Sender: TObject);
+    procedure StartButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
+    procedure FileFieldChange(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
   end; 
 
-  var Form1: TForm1;
+  var MainWindow: TMainWindow;
 
 implementation
 
@@ -64,9 +64,9 @@ function parse_arguments(): string;
 var target:string;
 begin
  target:='';
- if Form1.CheckBox1.Checked=True then target:=target+'/B ';
- if Form1.CheckBox2.Checked=True then target:=target+'/C ';
- if Form1.CheckBox3.Checked=True then target:=target+'/F ';
+ if MainWindow.FixCheckBox.Checked=True then target:=target+'/B ';
+ if MainWindow.DontBackupCheckBox.Checked=True then target:=target+'/C ';
+ if MainWindow.ForceCheckBox.Checked=True then target:=target+'/F ';
  parse_arguments:=target;
 end;
 
@@ -76,11 +76,11 @@ begin
  job:=parse_arguments()+convert_file_name(target);
  if execute_program(get_backend(),job)<>0 then
  begin
-  ShowMessage('Operation was failed');
+  ShowMessage('The operation failed');
  end
  else
  begin
-  ShowMessage('Operation was successfully completed');
+  ShowMessage('The operation was successfully completed');
  end;
 
 end;
@@ -88,42 +88,42 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Form1.Caption:='Free Strip Reloc Shell 1.2.5';
- Form1.BorderStyle:=bsDialog;
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
+ MainWindow.Caption:='Free Strip Reloc Shell 1.2.7';
+ MainWindow.BorderStyle:=bsDialog;
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
 end;
 
 procedure interface_setup();
 begin
- Form1.LabeledEdit1.Text:='';
- Form1.LabeledEdit1.LabelPosition:=lpLeft;
- Form1.LabeledEdit1.Enabled:=False;
- Form1.Button1.ShowHint:=False;
- Form1.Button2.ShowHint:=Form1.Button1.ShowHint;
- Form1.Button2.Enabled:=False;
- Form1.CheckBox1.Checked:=True;
- Form1.CheckBox2.Checked:=False;
- Form1.CheckBox3.Checked:=False;
+ MainWindow.FileField.Text:='';
+ MainWindow.FileField.LabelPosition:=lpLeft;
+ MainWindow.FileField.Enabled:=False;
+ MainWindow.OpenButton.ShowHint:=False;
+ MainWindow.StartButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.StartButton.Enabled:=False;
+ MainWindow.FixCheckBox.Checked:=True;
+ MainWindow.DontBackupCheckBox.Checked:=False;
+ MainWindow.ForceCheckBox.Checked:=False;
 end;
 
 procedure dialog_setup();
 begin
- Form1.OpenDialog1.InitialDir:='';
- Form1.OpenDialog1.FileName:='*.exe';
- Form1.OpenDialog1.DefaultExt:='*.exe';
- Form1.OpenDialog1.Filter:='An executable files|*.exe';
+ MainWindow.OpenDialog.InitialDir:='';
+ MainWindow.OpenDialog.FileName:='*.exe';
+ MainWindow.OpenDialog.DefaultExt:='*.exe';
+ MainWindow.OpenDialog.Filter:='An executable files|*.exe';
 end;
 
 procedure language_setup();
 begin
- Form1.LabeledEdit1.EditLabel.Caption:='File';
- Form1.Button1.Caption:='Open';
- Form1.Button2.Caption:='Start';
- Form1.CheckBox1.Caption:='Fix the checksum';
- Form1.CheckBox2.Caption:='Dont create a backup';
- Form1.CheckBox3.Caption:='Force processing';
- Form1.OpenDialog1.Title:='Open an executable file';
+ MainWindow.FileField.EditLabel.Caption:='File';
+ MainWindow.OpenButton.Caption:='Open';
+ MainWindow.StartButton.Caption:='Start';
+ MainWindow.FixCheckBox.Caption:='Fix the checksum';
+ MainWindow.DontBackupCheckBox.Caption:='Dont create a backup';
+ MainWindow.ForceCheckBox.Caption:='Force processing';
+ MainWindow.OpenDialog.Title:='Open an executable file';
 end;
 
 procedure setup();
@@ -134,26 +134,26 @@ begin
  language_setup();
 end;
 
-{ TForm1 }
+{ TMainWindow }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainWindow.FormCreate(Sender: TObject);
 begin
  setup();
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
+procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- Form1.Button2.Enabled:=Form1.LabeledEdit1.Text<>'';
+ MainWindow.StartButton.Enabled:=MainWindow.FileField.Text<>'';
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
- if Form1.OpenDialog1.Execute()=True then Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
+ if MainWindow.OpenDialog.Execute()=True then MainWindow.FileField.Text:=MainWindow.OpenDialog.FileName;
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TMainWindow.StartButtonClick(Sender: TObject);
 begin
- do_job(Form1.LabeledEdit1.Text);
+ do_job(MainWindow.FileField.Text);
 end;
 
 {$R *.lfm}

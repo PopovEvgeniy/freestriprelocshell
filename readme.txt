@@ -1,6 +1,6 @@
-                                FREE STRIP RELOC SHELL
+                                Free Strip Reloc Shell
 
-                                  Version 1.2.5
+                                  Version 1.2.7
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -20,7 +20,7 @@ This program is distributed under GNU GENERAL PUBLIC LICENSE.
 Prepare
 
 You can download STRIP RELOC here: http://www.jrsoftware.org/striprlc.php
-Put the executable file of STRIP RELOC to the FREE STRIP RELOC SHELL directory before the first start.
+Put the executable file of STRIP RELOC in the Free Strip Reloc Shell directory before the first start.
 
 Contact
 
@@ -29,7 +29,7 @@ You can send me a letter at tuzik87@inbox.ru.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC1 or higher.
+It can be compiled under Lazarus 4.0 RC3 or higher.
 
 Change log
 
@@ -53,3 +53,5 @@ Change log
 1.2.4: The small changes.
 1.2.4.1-1.2.4.2: The documentation has been updated.
 1.2.5: The source code was recompiled under Lazarus 4.0 RC1.
+1.2.6: The source code was recompiled under Lazarus 4.0 RC3.
+1.2.7: The small changes.
