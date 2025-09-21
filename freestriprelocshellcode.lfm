@@ -6,7 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'Free Strip Reloc Shell'
   ClientHeight = 203
   ClientWidth = 289
-  LCLVersion = '4.0.0.3'
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object FileField: TLabeledEdit
     Left = 40

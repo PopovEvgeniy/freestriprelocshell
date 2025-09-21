@@ -88,7 +88,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- MainWindow.Caption:='Free Strip Reloc Shell 1.2.7';
+ MainWindow.Caption:='Free Strip Reloc Shell 1.2.8';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;

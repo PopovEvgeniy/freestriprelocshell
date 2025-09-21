@@ -1,35 +1,32 @@
                                 Free Strip Reloc Shell
 
-                                  Version 1.2.7.1
+                                  Version 1.2.8
 
                          This software was made by Popov Evgeniy Alekseyevich
 
-System requirements
+System requirements.
 
 Windows 2000 or higher for 32-bit systems
 Windows Vista or higher for 64-bit systems
 
-Program description
+The program description.
 
 This program is a graphic shell for STRIP RELOC.
+You can download STRIP RELOC here: http://www.jrsoftware.org/striprlc.php
+Put it in the Free Strip Reloc Shell directory before the first start.
 
-License
+License.
 
 This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
-Prepare
-
-You can download STRIP RELOC here: http://www.jrsoftware.org/striprlc.php
-Put the executable file of STRIP RELOC in the Free Strip Reloc Shell directory before the first start.
-
-About program modification
+The source code.
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC3 or higher.
+It can be compiled under Lazarus 4.2 or higher.
 
-Change log
+Version history.
 
-0.1: Initial version.
+0.1: The initial version.
 0.2: The small changes in the source code and interface.
 0.3: StripReloc checking has been added.
 0.4-0.6: The small changes in the source code.
@@ -52,3 +49,4 @@ Change log
 1.2.6: The source code was recompiled under Lazarus 4.0 RC3.
 1.2.7: The small changes.
 1.2.7.1: The documentation has been updated.
+1.2.8: The source code was recompiled under Lazarus 4.2.
