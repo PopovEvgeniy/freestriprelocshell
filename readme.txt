@@ -1,6 +1,6 @@
                                 Free Strip Reloc Shell
 
-                                  Version 1.2.9
+                                  Version 1.3
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -50,4 +50,4 @@ Version history.
 1.2.7: The small changes.
 1.2.7.1: The documentation has been updated.
 1.2.8: The source code was recompiled under Lazarus 4.2.
-1.2.9: The small changes.
+1.2.9-1.3: The small changes.

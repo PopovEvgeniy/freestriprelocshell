@@ -46,7 +46,7 @@ implementation
 
 function get_backend(): string;
 begin
- get_backend:=ExtractFilePath(Application.ExeName)+'StripReloc.exe';
+ Result:=ExtractFilePath(Application.ExeName)+'StripReloc.exe';
 end;
 
 function convert_file_name(const source:string): string;
@@ -57,7 +57,7 @@ begin
  begin
   target:='"'+source+'"';
  end;
- convert_file_name:=target;
+ Result:=target;
 end;
 
 function execute_program(const executable:string;const argument:string):Integer;
@@ -68,7 +68,7 @@ begin
  except
   code:=-1;
  end;
- execute_program:=code;
+ Result:=code;
 end;
 
 function TMainWindow.parse_arguments(): string;
@@ -78,7 +78,7 @@ begin
  if Self.FixCheckBox.Checked=True then target:=target+'/B ';
  if Self.DontBackupCheckBox.Checked=True then target:=target+'/C ';
  if Self.ForceCheckBox.Checked=True then target:=target+'/F ';
- parse_arguments:=target;
+ Result:=target;
 end;
 
 procedure TMainWindow.do_job(const target:string);
@@ -99,7 +99,7 @@ end;
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Free Strip Reloc Shell';
- Self.Caption:='Free Strip Reloc Shell 1.2.9';
+ Self.Caption:='Free Strip Reloc Shell 1.3';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -132,7 +132,7 @@ begin
  Self.OpenButton.Caption:='Open';
  Self.StartButton.Caption:='Start';
  Self.FixCheckBox.Caption:='Fix the checksum';
- Self.DontBackupCheckBox.Caption:='Dont create a backup';
+ Self.DontBackupCheckBox.Caption:='Do not create a backup';
  Self.ForceCheckBox.Caption:='Force processing';
  Self.OpenDialog.Title:='Open an executable file';
 end;

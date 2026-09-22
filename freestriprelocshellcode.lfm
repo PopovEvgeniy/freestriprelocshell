@@ -41,9 +41,9 @@ object MainWindow: TMainWindow
   object DontBackupCheckBox: TCheckBox
     Left = 8
     Height = 19
-    Top = 138
-    Width = 133
-    Caption = 'Don''t create a backup'
+    Top = 136
+    Width = 140
+    Caption = 'Do not create a backup'
     TabOrder = 3
   end
   object ForceCheckBox: TCheckBox
